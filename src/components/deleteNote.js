@@ -15,8 +15,8 @@ export default connect(state => {
     return {};
 }, dispatch => {
     return {deleteIt : (noteIndex, note) => {
-            dispatch(undoNoteSave({note, noteIndex}));
-            dispatch(deleteNote(noteIndex));
+            //dispatch(undoNoteSave({note, noteIndex}));
+            dispatch(deleteNote(noteIndex, note));
         }
     };
 })(DeleteNote);

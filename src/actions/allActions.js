@@ -4,8 +4,18 @@ export function addNote(note) {
     return {type: ADD, payload: note};
 }
 
-export function deleteNote(noteIndex) {
+function deleteNoteAction(noteIndex) {
     return {type: DELETE, payload: noteIndex};
+}
+
+export function deleteNote(noteIndex, note) {
+    return dispatch => {
+        dispatch(deleteNoteAction(noteIndex));
+        setTimeout(() => {
+            dispatch(undoNoteSave({note, noteIndex}));
+        },3000)
+    };
+    
 }
 
 export function listNote() {

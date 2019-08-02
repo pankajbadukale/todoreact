@@ -13,6 +13,7 @@ class AddNote extends React.Component {
     }
 
     addNote() {
+        if(this.state.note.trim() === "") return;
         this.props.add(this.state.note);
         this.setState({note: ""});
     }
